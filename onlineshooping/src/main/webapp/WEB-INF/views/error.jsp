@@ -21,19 +21,11 @@
 
 <title>Online Shopping - ${title}</title>
 
-<script>
-	window.menu = '${title}';
-	window.contextRoot = '${contextRoot}';
-</script>
-
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable Theme -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
-
-<!-- Bootstrap Readable Theme -->
-<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -49,55 +41,30 @@
 
 <body>
 	<div class="wrapper">
-		<!-- Navigation -->
-		<%@ include file="./shared/navbar.jsp"%>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<a class="navbar-brand" href="${contextRoot}/home">Home</a>
+				</div>
+			</div>
+			<!-- /.container -->
+		</nav>
 
-		<!-- Page Content -->
 		<div class="content">
-			<!-- Loading the home content -->
-			<c:if test="${userClickHome == true}">
-				<%@ include file="home.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickAbout == true}">
-				<%@ include file="about.jsp"%>
-			</c:if>
-
-			<c:if test="${userClickContact == true}">
-				<%@ include file="contact.jsp"%>
-			</c:if>
-
-			<c:if
-				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
-				<%@ include file="listProducts.jsp"%>
-			</c:if>
-			
-			<!-- show single product -->
-			<c:if
-				test="${userClickShowProduct == true}">
-				<%@ include file="singleProduct.jsp"%>
-			</c:if>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="jumbotron">
+							<h1>${errorTitle}</h1>
+							<hr />
+							<blockquote>${errorDescription}</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<!-- /.container -->
 		<%@ include file="./shared/footer.jsp"%>
-
-		<!-- /.container -->
-
-		<!-- jQuery -->
-		<script src="${js}/jquery.min.js"></script>
-
-		<!-- Bootstrap Core JavaScript -->
-		<script src="${js}/bootstrap.min.js"></script>
-
-		<!-- DataTable Plugin -->
-		<script src="${js}/jquery.dataTables.js"></script>
-
-		<!-- DataTable Plugin -->
-		<script src="${js}/dataTables.bootstrap.js"></script>
-
-		<!-- Self coded JavaScript -->
-		<script src="${js}/myapp.js"></script>
 	</div>
 </body>
-
 </html>
